@@ -5,5 +5,5 @@ import { Component } from "@angular/core";
 	templateUrl: './recipe-list.component.html'
 })
 export class RecipeListComponent {
-	
+	recipes = []
 }
