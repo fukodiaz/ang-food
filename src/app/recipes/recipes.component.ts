@@ -6,6 +6,7 @@ import { Recipe } from './recipe.model'
 	templateUrl: './recipes.template.html'
 })
 export class RecipesComponent {
-	selectedRecipe: any
+	selectedRecipe: Recipe
 
+	constructor() {}
 }
