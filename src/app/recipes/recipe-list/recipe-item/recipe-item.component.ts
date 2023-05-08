@@ -8,10 +8,8 @@ import { Recipe } from "../../recipe.model";
 })
 export class RecipeItemComponent {
 	@Input() recipe: Recipe
+	@Input() index: number
 
 	constructor(private recipeServer: RecipeService) {}
 	
-	onSelect() {
-		this.recipeServer.recipeSelected.emit(this.recipe)
-	}
 }
