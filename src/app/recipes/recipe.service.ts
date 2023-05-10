@@ -11,19 +11,28 @@ export class RecipeService {
 	private recipes: Recipe[] = [
 		new Recipe(
 			'Steak', 
-			'Some description of first recipe', 
-			'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
+			'Juicy Steak', 
+			'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5RglS6PhvvvzSqOhGw0Yg2nVIh0RjLZlxPg&usqp=CAU',
 			[
 				new Ingredient('Meat', 1),
 				new Ingredient('Salt', 3),
 			]),
 		new Recipe(
 			'Burger', 
-			'Some description of second recipe', 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
+			'The Classic Burger', 
+			'https://static.toiimg.com/thumb/83565509.cms?width=1200&height=900',
 			[
 				new Ingredient('Bread', 2),
 				new Ingredient('Meat', 1)
-			])
+			]),
+		new Recipe(
+			'Spaghetti', 
+			'Savory spaghetti', 
+			'https://img.delo-vcusa.ru/2019/11/Spagetti-Putaneska.jpg',
+			[
+				new Ingredient('Pasta', 2),
+				new Ingredient('Tomatoes', 7)
+			]),
 	]
 
 	constructor(private slService: ShoppingListService) {}
