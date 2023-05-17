@@ -52,6 +52,30 @@ export class AuthService {
 			)
 	}
 
+	autoLogin() {
+		const userJson = localStorage.getItem('userData')
+		const userData: {
+			id: string,
+			email: string,
+			_token: string,
+			_tokenExpirationDate: string
+		} = userJson !== null ? JSON.parse(userJson) : null
+		if (!userData) {
+			return null
+		}
+
+		const loadedUser = new User(
+			userData.id,
+			userData.email,
+			userData._token,
+			new Date(userData._tokenExpirationDate)
+		)
+
+		if (loadedUser.token) {
+			this.user.next(loadedUser)
+		}
+	}
+
 	logout() {
 		this.user.next(null)
 		this.router.navigate(['/auth'])
@@ -65,7 +89,8 @@ export class AuthService {
 		const expirationDate = new Date(new Date().getTime() + expiresIn*1000)
 		const user = new User(localId, email, idToken, expirationDate)
 		this.user.next(user)
-		}
+		localStorage.setItem('userData', JSON.stringify(user))
+	}
 
 	private handleError(errorRes: HttpErrorResponse) {
 		let errorMessage = 'An unknown error occurred!'
