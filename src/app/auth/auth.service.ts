@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { environment } from "../../environments/environment";
 import { BehaviorSubject, catchError, throwError, tap } from "rxjs";
@@ -18,7 +19,8 @@ export interface AuthResponseData {
 export class AuthService {
 	user = new BehaviorSubject<User | null>(null)
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient,
+					private router: Router) {}
 
 	signup(email: string, password: string) {
 		const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseApiKey}`
@@ -48,6 +50,11 @@ export class AuthService {
 					this.handleAuthentication(localId, email,  idToken, +expiresIn)
 				})
 			)
+	}
+
+	logout() {
+		this.user.next(null)
+		this.router.navigate(['/auth'])
 	}
 
 	private handleAuthentication(
