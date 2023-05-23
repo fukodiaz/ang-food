@@ -60,7 +60,7 @@ export class AuthService {
 			email: string,
 			_token: string,
 			_tokenExpirationDate: string
-		} = userJson !== null ? JSON.parse(userJson) : null
+		} = userJson != null ? JSON.parse(userJson) : null
 		if (!userData) {
 			return null
 		}
