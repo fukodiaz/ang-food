@@ -17,6 +17,4 @@ import { SharedModule } from "../shared/shared.module";
 		SharedModule
 	]
 })
-export class ShoppingListModule {
-
-}
+export class ShoppingListModule {}
