@@ -5,3 +5,7 @@
 3. тестовая серверная часть реализована с помощью Firebase
 
 ссылка на сайт https://recipe-book-cyan.vercel.app/
+# Preview
+<image src="assets/recipe.png" alt="screen a recipe">
+
+<image src="assets/auth.png" alt="screen authentication">
